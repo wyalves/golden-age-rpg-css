@@ -1,135 +1,300 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+/* ============================================================
+   KAMO AKIHITO — TEMPLATE DE POSTAGEM
+   ============================================================ */
 
-/* ---- painel base: ocupa a div inteira do post ---- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ---- painel base: 75% do post, centralizado ---- */
 .akh{
-  width:100%;
   box-sizing:border-box;
-  margin:0;
-  background:#17121A;                 /* quase-preto com tinta roxa */
-  color:#E7DFD8;                      /* pergaminho */
+  width:75%;
+  margin:8px auto;
+  background:#17121A;
+  color:#E7DFD8;
   font-family:'Lato',-apple-system,'Segoe UI',Roboto,sans-serif;
   font-size:15px;
-  line-height:1.72;
+  line-height:1.7;
   border:1px solid #3A2530;
-  border-top:3px solid #8B1A2F;       /* selo forjado no topo */
-  border-radius:2px;                  /* aresta seca, aristocrática */
+  border-top:3px solid #8B1A2F;
+  border-radius:2px;
   overflow:hidden;
 }
 .akh *{ box-sizing:border-box; }
+
+/* ---- escudo total anti-BBCode ----
+   todo <br> morre, exceto onde quebra é conteúdo */
+.akh br{ display:none; }
+.akh-body br,
+.akh-dossier br,
+.akh-sub-txt br{ display:inline; }
 
 /* ============ HEADER — MODO CAPA ============ */
 .akh-cover{
   position:relative;
   height:220px;
+  margin:0; padding:0;
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  font-size:0; line-height:0;
 }
 .akh-cover-veil{
   position:absolute; inset:0;
   display:flex; flex-direction:column; justify-content:flex-end;
   padding:20px 28px;
+  line-height:normal;
   background:linear-gradient(180deg,
     rgba(23,18,26,0)   28%,
     rgba(23,18,26,.55) 62%,
     #17121A            100%);
 }
 
-/* ============ HEADER — MODO ENXUTO (sem imagem) ============ */
-.akh-lean{
-  padding:24px 28px 8px;
-}
+/* ============ HEADER — MODO ENXUTO ============ */
+.akh-lean{ padding:24px 28px 6px; }
 .akh-lean .akh-name::after{
   content:''; display:block;
   width:54px; height:2px; margin-top:12px;
   background:#8B1A2F;
 }
 
-/* ---- nome + epíteto (comuns aos dois modos) ---- */
+/* ---- nome + epíteto ---- */
 .akh-name{
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-weight:600;
-  font-size:40px;
-  line-height:1;
-  letter-spacing:.5px;
-  color:#F3ECE6;
-  text-shadow:0 2px 10px rgba(0,0,0,.6);
+  font-weight:600; font-size:40px; line-height:1; letter-spacing:.5px;
+  color:#F3ECE6; text-shadow:0 2px 10px rgba(0,0,0,.6);
 }
 .akh-epithet{
-  margin-top:9px;
-  font-family:'IBM Plex Mono',Consolas,monospace;
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#C98AA0;                      /* rosa-carmesim abafado */
-}
-
-/* ============ CORPO NARRATIVO ============ */
-.akh-body{
-  padding:22px 32px 8px;
-}
-.akh-body p{ margin:0 0 1em; }
-.akh-body p:last-child{ margin-bottom:0; }
-.akh-body b, .akh-body strong{
-  color:#F1E8E0;                      /* falas em negrito, levemente mais claras */
-  font-weight:700;
-}
-.akh-body i, .akh-body em{ color:#D8CCD2; }
-/* capitular opcional: adicione a classe "dropcap" na div .akh-body */
-.akh-body.dropcap > p:first-of-type::first-letter{
-  float:left;
-  font-family:'Cormorant Garamond',serif;
-  font-size:3.2em; line-height:.78;
-  padding:6px 12px 0 0;
-  color:#8B1A2F;
-}
-
-/* ============ STATUS ============ */
-.akh-status{
-  margin-top:10px;
-  padding:15px 32px 6px;
-  border-top:1px solid #2A1D26;
-  display:flex; flex-direction:column; gap:9px;
-}
-.akh-bar{
-  display:flex; align-items:center; gap:12px;
-  font-family:'IBM Plex Mono',Consolas,monospace;
-  font-size:11px; letter-spacing:1px;
-}
-.akh-lab{ width:34px; color:#B9A9B0; text-transform:uppercase; }
-.akh-track{
-  flex:1; height:6px; border-radius:3px;
-  background:#241922; overflow:hidden;
-}
-.akh-fill{ display:block; height:100%; border-radius:3px; }
-.akh-hp  .akh-fill{ background:linear-gradient(90deg,#8B1A2F,#B23048); }
-.akh-ea  .akh-fill{ background:linear-gradient(90deg,#5E2A4E,#8B3A6B); }
-.akh-san .akh-fill{ background:linear-gradient(90deg,#4A4550,#6E6675); }
-.akh-val{ width:104px; text-align:right; color:#D8CCD2; }
-
-/* ============ CONSIDERAÇÕES ============ */
-.akh-cons{
-  margin:12px 22px 4px;
-  background:#120E15;
-  border:1px solid #2E2029;
-  border-radius:2px;
-}
-.akh-cons summary{
-  cursor:pointer; user-select:none; list-style:none;
-  padding:11px 16px;
-  border-left:3px solid #8B1A2F;
+  margin-top:9px; line-height:1.2;
   font-family:'IBM Plex Mono',Consolas,monospace;
   font-size:11px; letter-spacing:3px; text-transform:uppercase;
   color:#C98AA0;
 }
-.akh-cons summary::-webkit-details-marker{ display:none; }
-.akh-cons summary::before{ content:'▸ '; }
-.akh-cons[open] summary::before{ content:'▾ '; }
+
+/* ============ BLOCO DE CENA (opcional) ============ */
+.akh-scene{
+  padding:22px 30px 0;
+  text-align:center;
+}
+.akh-scene-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:normal; font-weight:600;
+  font-size:22px; line-height:1.25; letter-spacing:1px;
+  color:#E7DFD8;
+}
+.akh-scene-sub{
+  margin-top:6px;
+  font-family:'IBM Plex Mono',Consolas,monospace;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:#9A8A91;
+}
+.akh-scene::after{
+  content:''; display:block;
+  width:38px; height:1px;
+  margin:16px auto 0;
+  background:#3A2530;
+}
+
+/* ============ CORPO NARRATIVO (Lato) ============ */
+.akh-body{ padding:20px 30px 8px; }
+.akh-body::after{ content:''; display:block; clear:both; }
+.akh-body b, .akh-body strong{ color:#FCF7F0; font-weight:700; }
+.akh-body i, .akh-body em{ color:#B9A0D6; }
+.akh-drop{
+  float:left;
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2em; line-height:.78; padding:6px 12px 0 0;
+  color:#8B1A2F;
+}
+
+/* ---- NOME DE TÉCNICA ---- */
+.akh-tech{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700; font-style:normal;
+  font-size:1.18em; letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:#D8506A;
+  text-shadow:0 0 14px rgba(139,26,47,.55);
+  white-space:nowrap;
+}
+
+/* ---- IMAGENS NO CORPO ---- */
+.akh-img{
+  display:block;
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  margin:18px 0 14px;
+  border:1px solid #3A2530;
+  border-radius:2px;
+  filter:saturate(.88) contrast(1.02);
+}
+.akh-img-side{
+  float:right;
+  width:42%;
+  max-height:260px;
+  object-fit:cover;
+  margin:6px 0 12px 20px;
+  border:1px solid #3A2530;
+  border-radius:2px;
+  filter:saturate(.88) contrast(1.02);
+}
+.akh-img-cap{
+  display:block;
+  margin:-8px 0 14px;
+  text-align:center;
+  font-family:'IBM Plex Mono',Consolas,monospace;
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:#9A8A91;
+}
+.akh-img-side + .akh-img-cap{
+  float:right; clear:right;
+  width:42%;
+  margin:-8px 0 12px 20px;
+}
+
+/* ============ STATUS (rodapé) ============ */
+.akh-status{
+  margin-top:10px;
+  padding:12px 30px 4px;
+  border-top:1px solid #2A1D26;
+  clear:both;
+}
+.akh-bar{
+  display:flex; align-items:center; gap:10px;
+  margin:0 0 7px;
+  line-height:1.2;
+  font-family:'IBM Plex Mono',Consolas,monospace;
+  font-size:11px; letter-spacing:.5px;
+}
+.akh-lab{ width:32px; color:#B9A9B0; text-transform:uppercase; flex:none; }
+.akh-track{
+  flex:1;
+  height:6px; border-radius:3px;
+  background:#241922; overflow:hidden;
+}
+.akh-fill{ display:block; height:100%; border-radius:3px; }
+.akh-hp  .akh-fill{ background:linear-gradient(90deg,#8B1A2F,#B23048); }
+.akh-ea  .akh-fill{ background:linear-gradient(90deg,#26425E,#3E6E96); }
+.akh-san .akh-fill{ background:linear-gradient(90deg,#6E5626,#B0904A); }
+.akh-val{ width:96px; text-align:right; color:#D8CCD2; flex:none; }
+
+/* ============================================================
+   CONSIDERAÇÕES  (v8 — estruturadas)
+   Anatomia: meta (chave-valor) → chips de ações → subseções
+   colapsáveis → legenda
+   ============================================================ */
+.akh-cons{
+  margin:12px 20px 4px;
+  background:#120E15;
+  border:1px solid #2E2029;
+  border-radius:2px;
+  font-family:'IBM Plex Mono',Consolas,monospace;
+}
+.akh-cons > summary{
+  cursor:pointer; user-select:none; list-style:none;
+  padding:11px 16px;
+  border-left:3px solid #8B1A2F;
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:#C98AA0;
+}
+.akh-cons > summary::-webkit-details-marker{ display:none; }
+.akh-cons > summary::before{ content:'▸ '; }
+.akh-cons[open] > summary::before{ content:'▾ '; }
+
+/* ---- META: grade de pares chave-valor ---- */
+.akh-meta{
+  display:flex; flex-wrap:wrap;
+  border-top:1px solid #2E2029;
+}
+.akh-kv{
+  flex:1 1 25%;
+  min-width:120px;
+  padding:10px 16px 9px;
+  border-right:1px solid #221822;
+  border-bottom:1px solid #221822;
+}
+.akh-kv:last-child{ border-right:none; }
+.akh-kv-k{
+  display:block;
+  font-size:9px; letter-spacing:2px; text-transform:uppercase;
+  color:#6E5A64;
+}
+.akh-kv-v{
+  display:block; margin-top:3px;
+  font-size:12px;
+  color:#D8CCD2;
+}
+.akh-kv-v a{ color:#B23048; text-decoration:none; border-bottom:1px solid #3A2530; }
+/* célula larga (ex.: objetivo) */
+.akh-kv-wide{ flex:2 1 50%; }
+
+/* ---- CHIPS: economia de ações ---- */
+.akh-acts{
+  display:flex; flex-wrap:wrap; gap:8px;
+  padding:12px 16px;
+  border-bottom:1px solid #221822;
+}
+.akh-chip{
+  display:inline-flex; align-items:baseline; gap:6px;
+  padding:5px 12px;
+  background:#1A1420;
+  border:1px solid #2E2029;
+  border-radius:2px;
+  font-size:11px; letter-spacing:1px;
+  color:#B9A9B0;
+}
+.akh-chip b{
+  font-family:inherit; font-weight:500;
+  color:#E7DFD8;
+}
+/* chip de ação gasta neste turno: destaque oxblood */
+.akh-chip-hot{
+  border-color:#8B1A2F;
+  color:#C98AA0;
+}
+.akh-chip-hot b{ color:#D8506A; }
+
+/* ---- SUBSEÇÕES colapsáveis ---- */
+.akh-sub{
+  border-bottom:1px solid #221822;
+}
+.akh-sub:last-of-type{ border-bottom:none; }
+.akh-sub > summary{
+  cursor:pointer; user-select:none; list-style:none;
+  padding:9px 16px;
+  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  color:#9A8A91;
+}
+.akh-sub > summary::-webkit-details-marker{ display:none; }
+.akh-sub > summary::before{ content:'+ '; color:#8B1A2F; }
+.akh-sub[open] > summary::before{ content:'− '; }
+.akh-sub[open] > summary{ color:#C98AA0; }
+.akh-sub-txt{
+  padding:2px 18px 14px;
+  font-size:12px; line-height:1.8;
+  color:#CFC4CB;
+}
+/* dentro das subseções: › para itens, valores em destaque */
+.akh-sub-txt b{ font-weight:500; color:#E7DFD8; }
+.akh-sub-txt i{ font-style:normal; color:#9A8A91; }
+.akh-sub-txt a{ color:#B23048; text-decoration:none; border-bottom:1px solid #3A2530; }
+
+/* ---- LEGENDA de formatação ---- */
+.akh-legend{
+  padding:10px 16px 12px;
+  border-top:1px solid #221822;
+  font-size:10px; letter-spacing:1px; line-height:2;
+  color:#6E5A64;
+}
+.akh-legend b{ font-weight:700; color:#FCF7F0; }
+.akh-legend i{ color:#B9A0D6; }
+.akh-legend .akh-tech{ font-size:11px; letter-spacing:1.5px; }
+
+/* dossiê legado (compatibilidade com posts antigos) */
 .akh-dossier{
   margin:0;
   padding:14px 18px 16px;
   border-top:1px solid #2E2029;
-  font-family:'IBM Plex Mono',Consolas,monospace;
   font-size:12px; line-height:1.75;
   color:#CFC4CB;
   white-space:pre-wrap; word-break:break-word;
@@ -137,36 +302,34 @@
 
 /* ============ ASSINATURA ============ */
 .akh-sig{
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:8px;
-  margin-top:8px; padding:12px 28px 16px;
+  display:flex; justify-content:center; align-items:center;
+  margin-top:8px; padding:12px 28px 14px;
   border-top:1px solid #2A1D26;
-}
-.akh-tag{
-  font-family:'IBM Plex Mono',Consolas,monospace;
-  font-style:italic; font-size:12px; letter-spacing:.5px;
-  color:#9A8A91;
 }
 .akh-links{
   font-family:'IBM Plex Mono',Consolas,monospace;
-  font-size:10.5px; letter-spacing:2px; text-transform:uppercase;
-  color:#5A4551;                      /* separadores · */
+  font-size:10.5px; letter-spacing:2px; text-transform:uppercase; color:#5A4551;
 }
-.akh-links a{
-  color:#B23048; text-decoration:none;
-  border-bottom:1px solid transparent;
-}
+.akh-links a{ color:#B23048; text-decoration:none; border-bottom:1px solid transparent; }
 .akh-links a:hover{ color:#D8506A; border-bottom-color:#8B1A2F; }
 
 /* ============ RESPONSIVO ============ */
+@media (max-width:760px){
+  .akh{ width:96%; }
+}
 @media (max-width:520px){
   .akh-cover{ height:150px; }
   .akh-cover-veil{ padding:16px 18px; }
   .akh-lean{ padding:20px 18px 6px; }
   .akh-name{ font-size:30px; }
+  .akh-scene{ padding:18px 18px 0; }
+  .akh-scene-title{ font-size:19px; }
   .akh-body{ padding:18px 18px 6px; }
-  .akh-status{ padding:13px 18px 4px; }
+  .akh-tech{ white-space:normal; letter-spacing:1.5px; }
+  .akh-img-side, .akh-img-side + .akh-img-cap{ float:none; width:100%; margin:14px 0 10px; }
+  .akh-status{ padding:12px 18px 4px; }
   .akh-val{ width:auto; }
   .akh-cons{ margin:12px 14px 4px; }
-  .akh-sig{ padding:12px 18px 14px; }
+  .akh-kv{ flex:1 1 50%; }
+  .akh-sig{ padding:12px 18px 12px; }
 }
