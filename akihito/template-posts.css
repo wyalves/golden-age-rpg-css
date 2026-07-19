@@ -1,5 +1,6 @@
 /* ============================================================
-   KAMO AKIHITO — TEMPLATE DE POSTAGEM  (v1.1)
+   KAMO AKIHITO — TEMPLATE DE POSTAGEM  (v1.2)
+   Golden Age JJK RPG · oxblood #8B1A2F
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
@@ -115,6 +116,16 @@
   color:#D8506A;
   text-shadow:0 0 14px rgba(139,26,47,.55);
   white-space:nowrap;
+}
+
+/* ---- MARCADOR SOBRESCRITO ----
+   Uso: texto<span class="akh-sup">nota</span> */
+.akh-sup{
+  font-weight:700;
+  color:#D8506A;
+  vertical-align:super;
+  font-size:1em;
+  line-height:0;          /* não estica a entrelinha do parágrafo */
 }
 
 /* ---- IMAGENS NO CORPO ---- */
