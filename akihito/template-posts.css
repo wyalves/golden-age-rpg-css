@@ -1,5 +1,5 @@
 /* ============================================================
-   KAMO AKIHITO — TEMPLATE DE POSTAGEM
+   KAMO AKIHITO — TEMPLATE DE POSTAGEM  (v1)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
@@ -193,13 +193,13 @@
 .akh-cons > summary{
   cursor:pointer; user-select:none; list-style:none;
   padding:11px 16px;
-  border-left:3px solid #8B1A2F;
+  text-align:center;
   font-size:11px; letter-spacing:3px; text-transform:uppercase;
   color:#C98AA0;
 }
 .akh-cons > summary::-webkit-details-marker{ display:none; }
-.akh-cons > summary::before{ content:'▸ '; }
-.akh-cons[open] > summary::before{ content:'▾ '; }
+/* barras oxblood laterais no título */
+.akh-cons > summary{ border-left:3px solid #8B1A2F; border-right:3px solid #8B1A2F; }
 
 /* ---- META: grade de pares chave-valor ---- */
 .akh-meta{
